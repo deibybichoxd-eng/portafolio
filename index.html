@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Camargo Freelancer | Portafolio de Marketing & Diseño</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-black: #050505;
+            --surface-dark: #0f0f11;
+            --card-bg: #141416;
+            --border-color: #27272a;
+            --text-white: #ffffff;
+            --text-muted: #a1a1aa;
+            --text-dark: #09090b;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--text-white);
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: var(--text-white);
+            border-radius: 50%;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--text-white);
+        }
+
+        .nav-btn {
+            padding: 10px 22px;
+            background: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--text-white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: var(--text-white);
+            color: var(--text-dark);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 8% 80px;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-white);
+            margin-bottom: 25px;
+        }
+
+        .badge-pill i {
+            font-size: 0.7rem;
+            color: #22c55e;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            max-width: 900px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            padding: 18px 40px;
+            background: var(--text-white);
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            background: #e4e4e7;
+            box-shadow: 0 0 45px rgba(255, 255, 255, 0.35);
+        }
+
+        .btn-secondary {
+            padding: 18px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-white);
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* METRICS BAR */
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px 8%;
+            background: var(--surface-dark);
+            border-y: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 20px;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .metric-item:last-child {
+            border-right: none;
+        }
+
+        .metric-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--text-white);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SECTIONS COMMON */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        /* SERVICES / CAPABILITIES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px 30px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            border-color: var(--text-white);
+            transform: translateY(-6px);
+            background: #18181b;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* YOUTUBE SECTION GRID */
+        .youtube-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--text-white);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            transform: translateY(-6px);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-white);
+        }
+
+        .card-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .link-btn {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 4px;
+            transition: var(--transition);
+        }
+
+        .link-btn:hover {
+            border-color: var(--text-white);
+            gap: 12px;
+        }
+
+        /* REELS / TIKTOK GRID SIN IMÁGENES */
+        .reels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .reel-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .reel-box:hover {
+            border-color: var(--text-white);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            background: #18181b;
+        }
+
+        .reel-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-white);
+            margin-bottom: 20px;
+            width: fit-content;
+        }
+
+        /* BRANDS GRID SIN IMÁGENES */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .brand-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .brand-card:hover {
+            border-color: var(--text-white);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            background: #18181b;
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 15px;
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .brand-badge {
+            font-size: 0.7rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .brand-features {
+            list-style: none;
+            margin: 20px 0 30px;
+        }
+
+        .brand-features li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-features li i {
+            color: var(--text-white);
+            font-size: 0.75rem;
+        }
+
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-white);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .btn-instagram:hover {
+            background: var(--text-white);
+            color: var(--text-dark);
+            border-color: var(--text-white);
+        }
+
+        .contact-box {
+            background: linear-gradient(180deg, var(--surface-dark) 0%, #000000 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box h2 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .contact-box p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .btn-whatsapp-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 22px 48px;
+            background: var(--text-white);
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 60px;
+            transition: var(--transition);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-whatsapp-large:hover {
+            transform: scale(1.05);
+            background: #f4f4f5;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.4);
+        }
+
+        .phone-display {
+            margin-top: 25px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 40px 8%;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: var(--bg-black);
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav { display: none; }
+            .hero { padding: 120px 5% 60px; }
+            .hero h1 { font-size: 2.3rem; }
+            section { padding: 60px 5%; }
+            .cta-group { flex-direction: column; width: 100%; }
+            .btn-primary, .btn-secondary, .btn-whatsapp-large { width: 100%; justify-content: center; }
+            footer { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <a href="#" class="logo">
+            <span></span> David Camargo
+        </a>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#youtube">YouTube</a>
+            <a href="#shorts">Verticales</a>
+            <a href="#clientes">Marcas</a>
+        </nav>
+        <a href="https://wa.me/573144791431?text=Hola%20David,%20me%20interesa%20trabajar%20contigo" target="_blank" class="nav-btn">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="badge-pill">
+            <i class="fa-solid fa-circle"></i> Disponible para Proyectos & Estrategias
+        </div>
+        <h1>Marketing & Diseño <span>que Genera Impacto</span></h1>
+        <p>Soy David Camargo y llevo 3 años de experiencia en el movimiento de redes y todo lo relacionado con marketing digital, producción audiovisual de alta retención y crecimiento estratégico para empresas.</p>
+        
+        <div class="cta-group">
+            <a href="https://wa.me/573144791431?text=Hola%20David,%20quiero%20cotizar%20un%20proyecto%20de%20marketing%20y%20dise%C3%B1o." target="_blank" class="btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp
+            </a>
+            <a href="#youtube" class="btn-secondary">
+                Ver Portafolio <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- METRICS BAR -->
+    <div class="metrics-bar">
+        <div class="metric-item">
+            <div class="metric-number">3+</div>
+            <div class="metric-label">Años de Experiencia</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-number">100%</div>
+            <div class="metric-label">Enfoque Comercial</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-number">HD/4K</div>
+            <div class="metric-label">Edición Pro & Retención</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-number">24/7</div>
+            <div class="metric-label">Atención Vía WhatsApp</div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="servicios">
+        <div class="section-header">
+            <span class="section-subtitle">Soluciones para Empresas</span>
+            <h2 class="section-title">¿Cómo Impulso Tu Negocio?</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-video"></i></div>
+                <h3 class="service-title">Edición de Video Pro</h3>
+                <p class="service-desc">Ritmo dinámico, ganchos de retención y efectos pensados para mantener a la audiencia conectada desde el primer segundo.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3 class="service-title">Estrategia de Redes</h3>
+                <p class="service-desc">Gestión integral de presencia digital orientada a posicionar marcas y convertir espectadores en clientes potenciales.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <h3 class="service-title">Contenido Viral Short-Form</h3>
+                <p class="service-desc">Creación de TikToks y Reels estructurados bajo tendencias de alto impacto para maximizar el alcance orgánico.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3 class="service-title">Branding & Publicidad</h3>
+                <p class="service-desc">Diseño gráfico y piezas promocionales que proyectan autoridad, estética profesional y confianza corporativa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- YOUTUBE CONTENT -->
+    <section id="youtube">
+        <div class="section-header">
+            <span class="section-subtitle">Formato Largo</span>
+            <h2 class="section-title">Producciones para YouTube</h2>
+        </div>
+
+        <div class="youtube-grid">
+            <div class="portfolio-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/SOKZ0-nNS2w" title="YouTube Video 1" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Edición Audiovisual & Content Creation</span>
+                    <h3 class="card-title">Video de Entretenimiento & Edición Ágil</h3>
+                    <p class="card-text">Edición de ritmo acelerado con efectos dinámicos y narrativa enfocada en la retención del espectador.</p>
+                    <a href="https://www.youtube.com/watch?v=SOKZ0-nNS2w&t=42s" target="_blank" class="link-btn">
+                        Ver en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/CL2UZ7Svbns" title="YouTube Video 2" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                    <span class="card-category">Storytelling & Gaming/Lifestyle</span>
+                    <h3 class="card-title">Producción & Creación de Contenido</h3>
+                    <p class="card-text">Estrategia de contenido de alto enganche diseñada para construir audiencia y comunidad digital.</p>
+                    <a href="https://www.youtube.com/watch?v=CL2UZ7Svbns" target="_blank" class="link-btn">
+                        Ver en YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIKTOKS & REELS (SOLO ATAJOS / LINKS) -->
+    <section id="shorts">
+        <div class="section-header">
+            <span class="section-subtitle">Formato Vertical</span>
+            <h2 class="section-title">TikToks & Instagram Reels</h2>
+        </div>
+
+        <div class="reels-grid">
+            
+            <!-- TikTok #1 -->
+            <div class="reel-box">
+                <div>
+                    <div class="reel-header-badge">
+                        <i class="fa-brands fa-tiktok"></i> TikTok
+                    </div>
+                    <h3 class="card-title">TikTok Viral #1</h3>
+                    <p class="card-text">Gancho visual de alto impacto optimizado para retención en los primeros segundos.</p>
+                </div>
+                <a href="https://www.tiktok.com/@deibybicho_/video/7523396780919180600" target="_blank" class="link-btn" style="margin-top: 20px;">
+                    Ver Contenido en TikTok <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- TikTok #2 -->
+            <div class="reel-box">
+                <div>
+                    <div class="reel-header-badge">
+                        <i class="fa-brands fa-tiktok"></i> TikTok
+                    </div>
+                    <h3 class="card-title">TikTok Viral #2</h3>
+                    <p class="card-text">Edición de ritmo acelerado con gráficos emergentes y tendencia.</p>
+                </div>
+                <a href="https://www.tiktok.com/@deibybicho_/video/7657347193589878036" target="_blank" class="link-btn" style="margin-top: 20px;">
+                    Ver Contenido en TikTok <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- TikTok #3 -->
+            <div class="reel-box">
+                <div>
+                    <div class="reel-header-badge">
+                        <i class="fa-brands fa-tiktok"></i> TikTok
+                    </div>
+                    <h3 class="card-title">TikTok Viral #3</h3>
+                    <p class="card-text">Formato directo al grano orientado a alcance orgánico masivo.</p>
+                </div>
+                <a href="https://www.tiktok.com/@deibybicho_/video/7658823027177590037" target="_blank" class="link-btn" style="margin-top: 20px;">
+                    Ver Contenido en TikTok <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- Instagram Reel -->
+            <div class="reel-box">
+                <div>
+                    <div class="reel-header-badge">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </div>
+                    <h3 class="card-title">Reel de Marca</h3>
+                    <p class="card-text">Estética limpia y profesional diseñada para posicionamiento comercial.</p>
+                </div>
+                <a href="https://www.instagram.com/reel/DTT2ZGokYBC/" target="_blank" class="link-btn" style="margin-top: 20px;">
+                    Ver Reel en Instagram <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MARCAS / TRABAJOS CON CLIENTES (SOLO ATAJOS / LINKS DE INSTAGRAM) -->
+    <section id="clientes">
+        <div class="section-header">
+            <span class="section-subtitle">Casos de Éxito</span>
+            <h2 class="section-title">Trabajos para Empresas & Clientes</h2>
+        </div>
+
+        <div class="brands-grid">
+            
+            <!-- Zafiro Marketing -->
+            <div class="brand-card">
+                <div>
+                    <div class="brand-header">
+                        <div class="brand-name">Zafiro Marketing</div>
+                        <span class="brand-badge">Agencia / B2B</span>
+                    </div>
+                    <p class="card-text">Campañas de atracción comercial, branding estratégico y piezas publicitarias para pequeñas empresas.</p>
+                    <ul class="brand-features">
+                        <li><i class="fa-solid fa-check"></i> Producción audiovisual en locación (Niagara)</li>
+                        <li><i class="fa-solid fa-check"></i> Campaña "Haz crecer tu negocio con nosotros"</li>
+                        <li><i class="fa-solid fa-check"></i> Diseño gráfico & anuncios dinámicos</li>
+                    </ul>
+                </div>
+                <a href="https://www.instagram.com/andy1zafiro/" target="_blank" class="btn-instagram">
+                    <i class="fa-brands fa-instagram"></i> Ir al Perfil @andy1zafiro
+                </a>
+            </div>
+
+            <!-- Sabor Tolimense -->
+            <div class="brand-card">
+                <div>
+                    <div class="brand-header">
+                        <div class="brand-name">Sabor Tolimense</div>
+                        <span class="brand-badge">Gastronomía</span>
+                    </div>
+                    <p class="card-text">Creación de contenido gastronómico, fotografía comercial de producto y videos promocionales que generan antojo e incentivan la venta.</p>
+                    <ul class="brand-features">
+                        <li><i class="fa-solid fa-check"></i> Campaña "Comienza la semana con un tamal"</li>
+                        <li><i class="fa-solid fa-check"></i> Reels gastronómicos dinámicos con ritmo</li>
+                        <li><i class="fa-solid fa-check"></i> Enfoque comercial con medios de pago</li>
+                    </ul>
+                </div>
+                <a href="https://www.instagram.com/sabortolimenseeu/" target="_blank" class="btn-instagram">
+                    <i class="fa-brands fa-instagram"></i> Ir al Perfil @sabortolimenseeu
+                </a>
+            </div>
+
+            <!-- TronicWorkz -->
+            <div class="brand-card">
+                <div>
+                    <div class="brand-header">
+                        <div class="brand-name">TronicWorkz</div>
+                        <span class="brand-badge">Automotriz Pro</span>
+                    </div>
+                    <p class="card-text">Edición de video dinámico de alta velocidad y fotografía industrial para la industria del alto rendimiento y modificación de motores.</p>
+                    <ul class="brand-features">
+                        <li><i class="fa-solid fa-check"></i> Showcase técnico de productos (Coils / Bobinas)</li>
+                        <li><i class="fa-solid fa-check"></i> Estética industrial "The Best at Modifying"</li>
+                        <li><i class="fa-solid fa-check"></i> Edición rítmica con audio de alto impacto</li>
+                    </ul>
+                </div>
+                <a href="https://www.instagram.com/tronicworkz/" target="_blank" class="btn-instagram">
+                    <i class="fa-brands fa-instagram"></i> Ir al Perfil @tronicworkz
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT / WHATSAPP ONLY -->
+    <section id="contacto">
+        <div class="contact-box">
+            <h2>¿Listo para escalar tu marca?</h2>
+            <p>Hablemos directamente sobre tu proyecto. Diseñaremos la estrategia de contenido que tu empresa necesita para destacar en redes.</p>
+            
+            <a href="https://wa.me/573144791431?text=Hola%20David,%20vengo%20de%20tu%20portafolio%20y%20quiero%20cotizar%20un%20servicio%20de%20marketing/dise%C3%B1o." target="_blank" class="btn-whatsapp-large">
+                <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+
+            <div class="phone-display">
+                <i class="fa-solid fa-phone"></i> +57 3144791431
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            &copy; 2026 David Camargo Freelancer. Todos los derechos reservados.
+        </div>
+        <div>
+            Estrategia, Marketing Digital & Diseño Audiovisual
+        </div>
+    </footer>
+
+</body>
+</html>
